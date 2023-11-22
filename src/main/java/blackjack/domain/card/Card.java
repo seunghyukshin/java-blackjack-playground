@@ -1,8 +1,8 @@
 package blackjack.domain.card;
 
 public class Card {
-    private String pattern;
-    private String cardNumber;
+    private final String pattern;
+    private final String cardNumber;
 
     public Card(String pattern, String cardNumber) {
         this.pattern = pattern;

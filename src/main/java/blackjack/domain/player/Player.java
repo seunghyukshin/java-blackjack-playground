@@ -1,10 +1,10 @@
 package blackjack.domain.player;
 
-import blackjack.domain.card.Cards;
+public class Player extends Person {
+    private int betAmount;
 
-public abstract class Player {
-    private String name;
-    Cards handCards;
-
-    public abstract void displayAllCards();
+    @Override
+    public void displayAllCards() {
+//        this.handCards
+    }
 }

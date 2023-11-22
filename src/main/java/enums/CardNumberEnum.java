@@ -1,6 +1,10 @@
 package enums;
 
-public enum CardNumber {
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public enum CardNumberEnum {
 
     ACE("A"),
     TWO("2"),
@@ -19,12 +23,20 @@ public enum CardNumber {
 
     public String name;
 
-    CardNumber(String name) {
+    CardNumberEnum(String name) {
         this.name = name;
     }
 
+
+    // TODO : ENUM 공통 메소드 추출
+    public static List<String> getNames() {
+        return Arrays.stream(values())
+                .map(cardNumber -> cardNumber.name)
+                .collect(Collectors.toList());
+    }
+
     // TODO : want11 Strategy로 refactor
-    private int getValue(CardNumber cardNumber, boolean want11) {
+    private int getValue(CardNumberEnum cardNumber, boolean want11) {
 
         // J,K,Q
         if (cardNumber == JACK || cardNumber == KING || cardNumber == QUEEN) {
@@ -47,5 +59,4 @@ public enum CardNumber {
             return 1;
         }
     }
-
 }
