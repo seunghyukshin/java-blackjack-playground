@@ -1,10 +1,14 @@
 package blackjack.domain.card;
 
-import com.sun.tools.javac.util.List;
+
+import java.util.List;
 
 public class Cards {
 
-    // 현재 미사용
-    private List<Cards> cards;
+    // 일급컬렉션 미사용
+    private List<Card> cards;
 
+    public Cards(List<Card> cardList) {
+        this.cards = cardList;
+    }
 }

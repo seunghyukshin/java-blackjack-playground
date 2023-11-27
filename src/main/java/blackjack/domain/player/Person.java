@@ -7,7 +7,7 @@ import java.util.List;
 
 public abstract class Person {
     private String name;
-    List<Card> handCards; // TODO:Cards
+    Cards handCards;
 
     public void displayAllCards() {
         System.out.println();
