@@ -27,7 +27,7 @@ public abstract class Person {
 
     public void showOneCard() {
         // TODO: dealer 보여줄 카드 : 무작위?
-        Card card = this.hands.top();
+        Card card = this.hands.peek();
         _showCard(card.toString());
     }
 

@@ -27,8 +27,15 @@ public class CardTest {
         Deck deck = new Deck();
         player.drawCard(deck, 2);
         player.showAllCard();
+        player.showAllCard();
+        player.showAllCard();
 
         dealer.drawCard(deck, 2);
+        dealer.showAllCard();
+        dealer.showAllCard();
+        dealer.showAllCard();
+        dealer.showOneCard();
+        dealer.showOneCard();
         dealer.showOneCard();
     }
 }

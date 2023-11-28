@@ -29,6 +29,7 @@ public class Deck {
     }
 
     public Card top() {
-        return cards.top();
+        return cards.pop();
     }
+
 }

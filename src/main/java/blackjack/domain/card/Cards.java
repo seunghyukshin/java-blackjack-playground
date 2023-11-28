@@ -23,9 +23,13 @@ public class Cards {
         Collections.shuffle(cards);
     }
 
-    public Card top() {
+    public Card pop() {
         // TODO : size 0일때, 예외처리
         return cards.remove(0);
+    }
+    public Card peek() {
+        // TODO : size 0일때, 예외처리
+        return cards.get(0);
     }
 
     public void add(Card card) {
@@ -36,4 +40,5 @@ public class Cards {
     public String toString() {
         return cards.stream().map(Card::toString).collect(Collectors.joining(", "));
     }
+
 }
