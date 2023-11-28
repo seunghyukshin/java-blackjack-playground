@@ -1,4 +1,4 @@
-package enums;
+package blackjack.enums;
 
 import java.util.Arrays;
 import java.util.List;

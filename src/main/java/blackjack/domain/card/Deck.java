@@ -1,7 +1,7 @@
 package blackjack.domain.card;
 
-import enums.CardNumberEnum;
-import enums.CardPatternEnum;
+import blackjack.enums.CardNumberEnum;
+import blackjack.enums.CardPatternEnum;
 
 import java.util.ArrayList;
 import java.util.List;
