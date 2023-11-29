@@ -6,4 +6,9 @@ public class Player extends Person {
     public Player(String name) {
         super(name);
     }
+
+    @Override
+    public void showFirstCards() {
+        showAllCard();
+    }
 }

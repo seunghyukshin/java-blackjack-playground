@@ -21,17 +21,13 @@ public abstract class Person {
         }
     }
 
+    public abstract void showFirstCards();
+
     public void showAllCard() {
         _showCard(this.hands.toString());
     }
 
-    public void showOneCard() {
-        // TODO: dealer 보여줄 카드 : 무작위?
-        Card card = this.hands.peek();
-        _showCard(card.toString());
-    }
-
-    private void _showCard(String cardString) {
+    protected void _showCard(String cardString) {
         System.out.println(this.name + " 카드: " + cardString);
     }
 }
