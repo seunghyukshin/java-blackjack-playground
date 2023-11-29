@@ -2,7 +2,7 @@ package blackjack.domain.player;
 
 import blackjack.domain.card.Card;
 
-public class Dealer extends Person {
+public class Dealer extends Participant {
     public Dealer(String name) {
         super(name);
     }

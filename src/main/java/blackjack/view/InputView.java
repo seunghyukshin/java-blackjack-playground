@@ -12,4 +12,8 @@ public class InputView {
 
         return playerNameString.split(",");
     }
+
+    public static int getBettingAmount(){
+        return 0;
+    }
 }

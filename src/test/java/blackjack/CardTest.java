@@ -3,7 +3,7 @@ package blackjack;
 import blackjack.domain.card.Card;
 import blackjack.domain.card.Deck;
 import blackjack.domain.player.Dealer;
-import blackjack.domain.player.Person;
+import blackjack.domain.player.Participant;
 import blackjack.domain.player.Player;
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +21,8 @@ public class CardTest {
 
     @Test
     public void UserCardTest() {
-        Person dealer = new Dealer("딜러");
-        Person player = new Player("Sam");
+        Participant dealer = new Dealer("딜러");
+        Participant player = new Player("Sam");
 
         Deck deck = new Deck();
         player.drawCard(deck, 2);

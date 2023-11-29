@@ -1,14 +1,13 @@
 package blackjack.domain.player;
 
-import blackjack.domain.card.Card;
 import blackjack.domain.card.Cards;
 import blackjack.domain.card.Deck;
 
-public abstract class Person {
+public abstract class Participant {
     protected String name;
     protected Cards hands;
 
-    public Person(String name) {
+    public Participant(String name) {
         this.name = name;
         this.hands = new Cards();
     }
