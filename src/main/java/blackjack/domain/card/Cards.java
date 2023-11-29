@@ -32,6 +32,10 @@ public class Cards {
         return cards.get(0);
     }
 
+    public int size(){
+        return cards.size();
+    }
+
     public void add(Card card) {
         cards.add(card);
     }
