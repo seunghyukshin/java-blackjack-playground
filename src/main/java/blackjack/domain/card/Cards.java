@@ -15,6 +15,7 @@ public class Cards {
     public Cards() {
         this.cards = new ArrayList<>();
     }
+
     public Cards(List<Card> cardList) {
         this.cards = cardList;
     }
@@ -27,6 +28,7 @@ public class Cards {
         // TODO : size 0일때, 예외처리
         return cards.remove(0);
     }
+
     public Card peek() {
         // TODO : size 0일때, 예외처리
         return cards.get(0);
@@ -41,4 +43,7 @@ public class Cards {
         return cards.stream().map(Card::toString).collect(Collectors.joining(", "));
     }
 
+    public int sumAll() {
+        return cards.stream().map(card -> card.getNumber()).reduce((a, b) -> a + b).get();
+    }
 }

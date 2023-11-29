@@ -1,16 +1,29 @@
 package blackjack.domain.card;
 
-public class Card {
-    private final String pattern;
-    private final String cardNumber;
+import blackjack.enums.CardNumber;
+import blackjack.enums.CardPattern;
 
-    public Card(String pattern, String cardNumber) {
-        this.pattern = pattern;
+public class Card {
+    private CardPattern cardPattern;
+    private CardNumber cardNumber;
+
+    public Card(String cardPattern, String cardNumber) {
+        this.cardPattern = CardPattern.valueOf(cardPattern);
+        this.cardNumber = CardNumber.valueOf(cardNumber);
+    }
+
+    public Card(CardPattern cardPattern, CardNumber cardNumber) {
+        this.cardPattern = cardPattern;
         this.cardNumber = cardNumber;
     }
 
     @Override
-    public String toString(){
-        return cardNumber + pattern;
+    public String toString() {
+        return cardNumber.getName() + cardPattern.getName();
+    }
+
+    public int getNumber() {
+        // TODO :
+        return cardNumber.getValue(false);
     }
 }

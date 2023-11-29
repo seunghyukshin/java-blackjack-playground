@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public enum CardNumberEnum {
+public enum CardNumber {
 
     ACE("A"),
     TWO("2"),
@@ -23,10 +23,13 @@ public enum CardNumberEnum {
 
     public String name;
 
-    CardNumberEnum(String name) {
+    CardNumber(String name) {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
 
     // TODO : ENUM 공통 메소드 추출
     public static List<String> getNames() {
@@ -36,20 +39,20 @@ public enum CardNumberEnum {
     }
 
     // TODO : want11 Strategy로 refactor
-    private int getValue(CardNumberEnum cardNumber, boolean want11) {
+    public int getValue(boolean want11) {
 
         // J,K,Q
-        if (cardNumber == JACK || cardNumber == KING || cardNumber == QUEEN) {
+        if (this == JACK || this == KING || this == QUEEN) {
             return 10;
         }
 
         // A
-        if (cardNumber == ACE) {
+        if (this == ACE) {
             return _getValueOfAce(want11);
         }
 
         // 숫자
-        return Integer.parseInt(cardNumber.name);
+        return Integer.parseInt(this.name);
     }
 
     private int _getValueOfAce(boolean want11) {
@@ -59,4 +62,5 @@ public enum CardNumberEnum {
             return 1;
         }
     }
+
 }

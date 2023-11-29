@@ -1,7 +1,7 @@
 package blackjack.domain.card;
 
-import blackjack.enums.CardNumberEnum;
-import blackjack.enums.CardPatternEnum;
+import blackjack.enums.CardNumber;
+import blackjack.enums.CardPattern;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class Deck {
         // TODO : 여기에 담아야함
         List<Card> cardList = new ArrayList<>();
 
-        List<String> cardPatternList = CardPatternEnum.getNames();
-        List<String> cardNumberList = CardNumberEnum.getNames();
+        List<String> cardPatternList = CardPattern.getNames();
+        List<String> cardNumberList = CardNumber.getNames();
 
         cardPatternList.forEach(cardPattern -> cardNumberList.stream().forEach(cardNumber -> cardList.add(new Card(cardPattern, cardNumber))));
 

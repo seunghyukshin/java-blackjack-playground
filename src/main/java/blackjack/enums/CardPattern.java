@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public enum CardPatternEnum {
+public enum CardPattern {
 
     HEART("하트"),
     SPADE("스페이드"),
@@ -14,8 +14,12 @@ public enum CardPatternEnum {
 
     public String name;
 
-    CardPatternEnum(String name) {
+    CardPattern(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     // TODO : ENUM 공통 메소드 추출
