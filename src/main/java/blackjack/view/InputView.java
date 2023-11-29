@@ -13,7 +13,9 @@ public class InputView {
         return playerNameString.split(",");
     }
 
-    public static int getBettingAmount(){
-        return 0;
+    public static int getBettingAmount(String playerName) {
+        System.out.println(String.format("%s의 배팅금액은?", playerName));
+
+        return scanner.nextInt();
     }
 }

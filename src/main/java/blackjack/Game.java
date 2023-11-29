@@ -29,18 +29,14 @@ public class Game {
      * 2-2. 첫패 보여주기 (딜러:1, 플레이어:2)
      */
     public void play() {
-        _bet();
+        participants.bet();
         participants.dealCard(deck, 2);
         participants.showFirstCard();
 
 
+
+
     }
 
-
-    private void _bet() {
-
-        int bettingAmount = InputView.getBettingAmount();
-
-    }
 
 }

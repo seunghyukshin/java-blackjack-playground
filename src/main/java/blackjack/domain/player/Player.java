@@ -7,6 +7,10 @@ public class Player extends Participant {
         super(name);
     }
 
+    public void setBetAmount(int betAmount) {
+        this.betAmount = betAmount;
+    }
+
     @Override
     public void showFirstCards() {
         showAllCard();
