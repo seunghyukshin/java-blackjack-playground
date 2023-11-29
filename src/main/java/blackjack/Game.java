@@ -17,7 +17,6 @@ public class Game {
 
         gamers.add(new Dealer());
         gamers.addAll(players);
-        System.out.println(gamers.toString());
     }
 
     /**

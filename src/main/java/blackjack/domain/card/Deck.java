@@ -4,7 +4,9 @@ import blackjack.enums.CardNumber;
 import blackjack.enums.CardPattern;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Deck {
     // TODO : 왜 상속받지않고 필드로 갖게 되었나?
@@ -17,13 +19,8 @@ public class Deck {
 
     // 52장 생성
     public void _init() {
-        // TODO : 여기에 담아야함
         List<Card> cardList = new ArrayList<>();
-
-        List<String> cardPatternList = CardPattern.getNames();
-        List<String> cardNumberList = CardNumber.getNames();
-
-        cardPatternList.forEach(cardPattern -> cardNumberList.stream().forEach(cardNumber -> cardList.add(new Card(cardPattern, cardNumber))));
+        Arrays.stream(CardPattern.values()).forEach(pattern -> Arrays.stream(CardNumber.values()).forEach(number -> cardList.add(new Card(pattern, number))));
 
         cards = new Cards(cardList);
     }
