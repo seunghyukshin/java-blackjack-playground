@@ -31,4 +31,8 @@ public class Participants {
                 .map(participant -> (Player) participant)
                 .collect(Collectors.toList());
     }
+
+    public void test() {
+        participants.forEach(System.out::println);
+    }
 }

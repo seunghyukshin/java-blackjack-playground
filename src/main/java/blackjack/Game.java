@@ -33,8 +33,7 @@ public class Game {
         participants.dealCard(deck, 2);
         participants.showFirstCard();
 
-
-
+        participants.test();
 
     }
 

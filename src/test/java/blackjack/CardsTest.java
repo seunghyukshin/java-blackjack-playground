@@ -31,6 +31,5 @@ public class CardsTest {
     public void sum(){
         int sum = cards.sumAll();
         assertThat(sum).isEqualTo(12);
-        System.out.println(sum);
     }
 }

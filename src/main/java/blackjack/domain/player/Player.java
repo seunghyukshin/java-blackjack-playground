@@ -15,4 +15,9 @@ public class Player extends Participant {
     public void showFirstCards() {
         showAllCard();
     }
+
+    @Override
+    public String toString() {
+        return String.format("이름 : %s, 베팅금액 : %d, 카드 : %s", name, betAmount, hands.toString());
+    }
 }

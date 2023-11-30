@@ -26,4 +26,8 @@ public abstract class Participant {
     public void showAllCard() {
         ResultView.showCard(name, hands.toString());
     }
+    @Override
+    public String toString() {
+        return String.format("이름 : %s, 카드 : %s", name, hands.toString());
+    }
 }
