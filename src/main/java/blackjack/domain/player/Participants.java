@@ -13,16 +13,10 @@ public class Participants {
         this.participants = participants;
     }
 
-    public void showFirstCard() {
-        this.participants.forEach(Participant::showFirstCards);
-    }
-
-    public void dealCard(Deck deck, int count) {
-        this.participants.forEach(participant -> participant.drawCard(deck, 2));
-    }
-
     public void bet() {
-        _getOnlyPlayers().stream().forEach(player -> player.setBetAmount(InputView.getBettingAmount(player.name)));
+        for (Player player : _getOnlyPlayers()) {
+            player.setBetAmount(InputView.getBettingAmount(player.name));
+        }
     }
 
     private List<Player> _getOnlyPlayers() {
@@ -32,7 +26,20 @@ public class Participants {
                 .collect(Collectors.toList());
     }
 
+    public void showFirstCard() {
+        participants.forEach(Participant::showFirstCards);
+    }
+
+    public void dealCard(Deck deck, int count) {
+        participants.forEach(participant -> participant.drawCard(deck, count));
+    }
+
+    // 테스트 출력용 메소드
     public void test() {
         participants.forEach(System.out::println);
+    }
+
+    public void play() {
+        participants.forEach(participant -> participant.playTurn());
     }
 }

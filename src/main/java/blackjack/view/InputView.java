@@ -18,4 +18,11 @@ public class InputView {
 
         return scanner.nextInt();
     }
+
+    public static boolean isMoreDeal(String playerName) {
+        System.out.println(String.format("%s는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)", playerName));
+
+        return "Y".equals(scanner.nextLine());
+    }
+
 }

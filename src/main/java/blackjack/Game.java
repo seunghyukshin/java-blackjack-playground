@@ -24,17 +24,23 @@ public class Game {
     }
 
     /**
+     * <p>
      * 1. 배팅
      * 2-1. 각 2장 나눠주기.
      * 2-2. 첫패 보여주기 (딜러:1, 플레이어:2)
+     * 3. 각 참가자들 턴 진행
+     * 3-1. 2장받은 카드가 블랙잭인지 확인
+     * 3-2. 더 받을지 여부 확인
+     * </p>
      */
     public void play() {
         participants.bet();
         participants.dealCard(deck, 2);
         participants.showFirstCard();
 
-        participants.test();
+//        participants.test();
 
+        participants.play();
     }
 
 
