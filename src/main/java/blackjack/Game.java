@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    private Deck deck;
+    public static Deck deck;
     private Participants participants;
 
     public Game(List<Player> players) {
@@ -35,7 +35,7 @@ public class Game {
      */
     public void play() {
         participants.bet();
-        participants.dealCard(deck, 2);
+        participants.dealCard(2);
         participants.showFirstCard();
 
 //        participants.test();

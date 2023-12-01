@@ -6,6 +6,8 @@ import blackjack.view.InputView;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static blackjack.Game.deck;
+
 public class Participants {
     private final List<Participant> participants;
 
@@ -30,8 +32,8 @@ public class Participants {
         participants.forEach(Participant::showFirstCards);
     }
 
-    public void dealCard(Deck deck, int count) {
-        participants.forEach(participant -> participant.drawCard(deck, count));
+    public void dealCard(int count) {
+        participants.forEach(participant -> participant.drawCard(count));
     }
 
     // 테스트 출력용 메소드

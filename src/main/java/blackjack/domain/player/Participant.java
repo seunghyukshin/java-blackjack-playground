@@ -6,6 +6,8 @@ import blackjack.strategy.GameEndStrategy;
 import blackjack.view.InputView;
 import blackjack.view.ResultView;
 
+import static blackjack.Game.deck;
+
 public abstract class Participant {
     protected String name;
     protected Cards hands;
@@ -21,8 +23,7 @@ public abstract class Participant {
     }
 
     // 장수 만큼 뽑기
-    public void drawCard(Deck deck, int count) {
-        // TODO : deck을 param으로 받고 싶지 않다.
+    public void drawCard(int count) {
         for (int i = 0; i < count; i++) {
             hands.add(deck.top());
         }
@@ -45,6 +46,8 @@ public abstract class Participant {
         }
 
         // TODO : 받을지 여부
-        InputView.isMoreDeal(name);
+        if (InputView.isMoreDeal(name)) {
+            drawCard(1);
+        }
     }
 }

@@ -25,12 +25,12 @@ public class CardTest {
         Participant player = new Player("Sam");
 
         Deck deck = new Deck();
-        player.drawCard(deck, 2);
+        player.drawCard(2);
         player.showAllCard();
         player.showAllCard();
         player.showFirstCards();
 
-        dealer.drawCard(deck, 2);
+        dealer.drawCard(2);
         dealer.showAllCard();
         dealer.showAllCard();
         dealer.showAllCard();
