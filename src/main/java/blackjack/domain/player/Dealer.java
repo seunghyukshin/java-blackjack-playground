@@ -1,6 +1,5 @@
 package blackjack.domain.player;
 
-import blackjack.domain.card.Card;
 import blackjack.view.ResultView;
 
 public class Dealer extends Participant {
@@ -19,6 +18,6 @@ public class Dealer extends Participant {
 
     private void _showOneCard() {
         // TODO: dealer 보여줄 카드 : 무작위?
-        ResultView.showCard(name, hands.peek().toString());
+        ResultView.printCardContent(name, hands.peek().toString());
     }
 }

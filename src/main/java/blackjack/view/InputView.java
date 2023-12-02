@@ -14,15 +14,17 @@ public class InputView {
     }
 
     public static int getBettingAmount(String playerName) {
+        System.out.println();
         System.out.println(String.format("%s의 배팅금액은?", playerName));
 
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public static boolean isMoreDeal(String playerName) {
+        System.out.println();
         System.out.println(String.format("%s는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)", playerName));
 
-        return "Y".equals(scanner.nextLine());
+        return "y".equals(scanner.nextLine());
     }
 
 }

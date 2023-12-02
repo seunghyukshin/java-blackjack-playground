@@ -1,7 +1,6 @@
 package blackjack.domain.player;
 
 import blackjack.domain.card.Cards;
-import blackjack.domain.card.Deck;
 import blackjack.strategy.GameEndStrategy;
 import blackjack.view.InputView;
 import blackjack.view.ResultView;
@@ -32,7 +31,7 @@ public abstract class Participant {
     public abstract void showFirstCards();
 
     public void showAllCard() {
-        ResultView.showCard(name, hands.toString());
+        ResultView.printCardContent(name, hands.toString());
     }
 
     /**
@@ -45,9 +44,14 @@ public abstract class Participant {
             return;
         }
 
-        // TODO : 받을지 여부
-        if (InputView.isMoreDeal(name)) {
+        while (InputView.isMoreDeal(name)) {
             drawCard(1);
+            showAllCard();
         }
+
+    }
+
+    public void score() {
+        ResultView.printScore(name, hands.toString(), hands.sumAll());
     }
 }

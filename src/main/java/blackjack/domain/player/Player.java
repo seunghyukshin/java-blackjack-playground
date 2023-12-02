@@ -17,6 +17,10 @@ public class Player extends Participant {
     }
 
     @Override
+    public void playTurn(){
+        super.playTurn();
+    }
+    @Override
     public String toString() {
         return String.format("이름 : %s, 베팅금액 : %d, 카드 : %s", name, betAmount, hands.toString());
     }

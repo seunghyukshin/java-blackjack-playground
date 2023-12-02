@@ -1,12 +1,9 @@
 package blackjack.domain.player;
 
-import blackjack.domain.card.Deck;
 import blackjack.view.InputView;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static blackjack.Game.deck;
 
 public class Participants {
     private final List<Participant> participants;
@@ -43,5 +40,9 @@ public class Participants {
 
     public void play() {
         participants.forEach(participant -> participant.playTurn());
+    }
+
+    public void score() {
+        participants.forEach(participant -> participant.score());
     }
 }

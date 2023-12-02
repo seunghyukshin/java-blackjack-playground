@@ -5,7 +5,6 @@ import blackjack.domain.player.Dealer;
 import blackjack.domain.player.Participants;
 import blackjack.domain.player.Participant;
 import blackjack.domain.player.Player;
-import blackjack.view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +17,8 @@ public class Game {
         deck = new Deck();
 
         List<Participant> participantList = new ArrayList<>();
-        participantList.add(new Dealer());
         participantList.addAll(players);
+        participantList.add(new Dealer());
         this.participants = new Participants(participantList);
     }
 
@@ -41,6 +40,7 @@ public class Game {
 //        participants.test();
 
         participants.play();
+        participants.score();
     }
 
 
