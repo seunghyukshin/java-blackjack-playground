@@ -1,6 +1,7 @@
 package blackjack.domain.player;
 
 import blackjack.domain.card.Cards;
+import blackjack.strategy.draw.DealerDrawStrategy;
 import blackjack.strategy.GameEndStrategy;
 import blackjack.view.InputView;
 import blackjack.view.ResultView;
@@ -38,18 +39,7 @@ public abstract class Participant {
      * 1. 2장받은 카드가 블랙잭인지 확인
      * 2. 더 받을지 여부 확인
      */
-    public void playTurn() {
-        GameEndStrategy gameEndStrategy = new GameEndStrategy(hands.sumAll());
-        if (gameEndStrategy.isBlackjack()) {
-            return;
-        }
-
-        while (InputView.isMoreDeal(name)) {
-            drawCard(1);
-            showAllCard();
-        }
-
-    }
+    public abstract void playTurn();
 
     public void score() {
         ResultView.printScore(name, hands.toString(), hands.sumAll());

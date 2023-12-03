@@ -41,6 +41,11 @@ public class Game {
 
         participants.play();
         participants.score();
+
+//        Participants winners = participants.getWinner();
+//        if(winner.size() == 2){
+//
+//        }
     }
 
 

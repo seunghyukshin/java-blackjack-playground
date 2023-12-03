@@ -1,6 +1,8 @@
 package blackjack.domain.player;
 
+import blackjack.strategy.draw.DealerDrawStrategy;
 import blackjack.view.ResultView;
+
 
 public class Dealer extends Participant {
     public Dealer(String name) {
@@ -14,6 +16,20 @@ public class Dealer extends Participant {
     @Override
     public void showFirstCards() {
         _showOneCard();
+    }
+
+    @Override
+    public void playTurn() {
+        DealerDrawStrategy drawStrategy = new DealerDrawStrategy(hands);
+
+        if(drawStrategy.isDrawable()){
+            ResultView.printDrawResultOfDealer();
+            drawCard(1);
+
+            return;
+        }
+
+        ResultView.printNoDrawOfDealer();
     }
 
     private void _showOneCard() {
