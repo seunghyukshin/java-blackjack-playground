@@ -39,15 +39,15 @@ public class Participants {
         participants.forEach(System.out::println);
     }
 
-    public void play() {
-        participants.forEach(participant -> participant.playTurn());
+    public void playTurn() {
+        participants.forEach(Participant::playTurn);
     }
 
     public void score() {
-        participants.forEach(participant -> participant.printScore());
+        participants.forEach(Participant::printScore);
     }
 
-    public void settle() {
+    public void settleAmount() {
         List<Player> players = _getOnlyPlayers();
         Dealer dealer = _getDealer();
 
@@ -58,7 +58,6 @@ public class Participants {
     }
 
     private Dealer _getDealer() {
-
         return participants.stream()
                 .filter(participant -> participant instanceof Dealer)
                 .map(participant -> (Dealer) participant)

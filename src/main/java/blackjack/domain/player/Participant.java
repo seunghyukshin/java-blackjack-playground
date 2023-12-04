@@ -6,6 +6,7 @@ import blackjack.view.ResultView;
 import static blackjack.Game.deck;
 
 public abstract class Participant {
+    // TODO : 변수 3개로
     protected String name;
     protected Cards hands;
     protected int profit; // 수익
@@ -15,12 +16,17 @@ public abstract class Participant {
         this.hands = new Cards();
     }
 
-    public void addProfit(double profit) {
-        this.profit += (int) profit;
+    public void giveProfit(Participant participant, int profit){
+        participant.addProfit(profit);
+        this.subtractProfit(profit);
     }
 
-    public void subtractProfit(double profit) {
-        this.profit -= (int) profit;
+    public void addProfit(int profit) {
+        this.profit += profit;
+    }
+
+    public void subtractProfit(int profit) {
+        this.profit -= profit;
     }
 
     @Override

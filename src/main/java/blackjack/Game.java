@@ -11,13 +11,12 @@ import java.util.List;
 
 public class Game {
     public static Deck deck;
-    private Participants participants;
+    private final Participants participants;
 
     public Game(List<Player> players) {
         deck = new Deck();
 
-        List<Participant> participantList = new ArrayList<>();
-        participantList.addAll(players);
+        List<Participant> participantList = new ArrayList<>(players);
         participantList.add(new Dealer());
         this.participants = new Participants(participantList);
     }
@@ -30,19 +29,17 @@ public class Game {
      * 3. 각 참가자들 턴 진행
      * 3-1. 2장받은 카드가 블랙잭인지 확인
      * 3-2. 더 받을지 여부 확인
+     * 4. 점수계산
+     * 5. 금액 정산
      * </p>
      */
     public void play() {
         participants.bet();
         participants.dealCard(2);
         participants.showFirstCard();
-
-//        participants.test();
-
-        participants.play();
+        participants.playTurn();
         participants.score();
-        participants.settle();
-
+        participants.settleAmount();
     }
 
 

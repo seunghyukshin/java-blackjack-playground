@@ -45,26 +45,24 @@ public class Player extends Participant {
      * 3. 처음 두 장의 카드 합이 21일 경우 블랙잭이 되면 베팅 금액의 1.5 배를 딜러에게 받는다.
      * 3-2. 딜러와 플레이어가 모두 동시에 블랙잭인 경우 플레이어는 베팅한 금액을 돌려받는다.
      */
+    // TODO : 10줄로 줄이기
     public void match(Dealer dealer) {
         GameEndStrategy dealerStrategy = new GameEndStrategy(dealer.hands);
         GameEndStrategy playerStrategy = new GameEndStrategy(this.hands);
 
         // 1. 플레이어 승
         if (dealerStrategy.isBurst() && playerStrategy.isNotBurst()) {
-            this.addProfit(betAmount);
-            dealer.subtractProfit(betAmount);
+            dealer.giveProfit(this, betAmount);
         }
 
         // 2. 딜러 승
         if (playerStrategy.isBurst() && dealerStrategy.isNotBurst()) {
-            dealer.addProfit(betAmount);
-            this.subtractProfit(betAmount);
+            this.giveProfit(dealer, betAmount);
         }
 
         // 3. 플레이어 블랙잭 승
         if (playerStrategy.isBlackjack() && dealerStrategy.isNotBlackjack()) {
-            this.addProfit(betAmount * 1.5);
-            dealer.subtractProfit(betAmount * 1.5);
+            dealer.giveProfit(this, (int) (betAmount * 1.5));
         }
 
         // 4. 판정승
@@ -72,20 +70,19 @@ public class Player extends Participant {
             _compareScore(dealer);
         }
 
-        // 5. 원금회수 = 둘 다 Burst 혹은 두사람 점수 같은 경우
+        // 5. 원금회수 = "둘 다 Burst" 혹은 "두사람 점수 같은 경우"
 
     }
 
     // 점수 더 큰 참가자 반환
     private void _compareScore(Dealer dealer) {
-
+        // player 승
         if (this.hands.sumAll() > dealer.hands.sumAll()) {
-            this.addProfit(betAmount);
-            dealer.subtractProfit(betAmount);
+            dealer.giveProfit(this, betAmount);
         }
+        // dealer 승
         if (this.hands.sumAll() < dealer.hands.sumAll()) {
-            dealer.addProfit(betAmount);
-            this.subtractProfit(betAmount);
+            this.giveProfit(dealer, betAmount);
         }
     }
 }
