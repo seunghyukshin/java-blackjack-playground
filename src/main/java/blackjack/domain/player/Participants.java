@@ -1,6 +1,7 @@
 package blackjack.domain.player;
 
 import blackjack.view.InputView;
+import blackjack.view.ResultView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,6 +44,25 @@ public class Participants {
     }
 
     public void score() {
-        participants.forEach(participant -> participant.score());
+        participants.forEach(participant -> participant.printScore());
+    }
+
+    public void settle() {
+        List<Player> players = _getOnlyPlayers();
+        Dealer dealer = _getDealer();
+
+        players.forEach(player -> player.match(dealer)); // profit settle
+
+        ResultView.printTitleOfSettlement();
+        participants.forEach(Participant::printSettlement);
+    }
+
+    private Dealer _getDealer() {
+
+        return participants.stream()
+                .filter(participant -> participant instanceof Dealer)
+                .map(participant -> (Dealer) participant)
+                .findFirst()
+                .get();
     }
 }

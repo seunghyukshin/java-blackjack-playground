@@ -1,9 +1,6 @@
 package blackjack.domain.player;
 
 import blackjack.domain.card.Cards;
-import blackjack.strategy.draw.DealerDrawStrategy;
-import blackjack.strategy.GameEndStrategy;
-import blackjack.view.InputView;
 import blackjack.view.ResultView;
 
 import static blackjack.Game.deck;
@@ -11,10 +8,19 @@ import static blackjack.Game.deck;
 public abstract class Participant {
     protected String name;
     protected Cards hands;
+    protected int profit; // 수익
 
     public Participant(String name) {
         this.name = name;
         this.hands = new Cards();
+    }
+
+    public void addProfit(double profit) {
+        this.profit += (int) profit;
+    }
+
+    public void subtractProfit(double profit) {
+        this.profit -= (int) profit;
     }
 
     @Override
@@ -41,7 +47,11 @@ public abstract class Participant {
      */
     public abstract void playTurn();
 
-    public void score() {
+    public void printScore() {
         ResultView.printScore(name, hands.toString(), hands.sumAll());
+    }
+
+    public void printSettlement() {
+        ResultView.printSettlement(name, profit);
     }
 }

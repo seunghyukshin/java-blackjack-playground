@@ -41,11 +41,8 @@ public class Game {
 
         participants.play();
         participants.score();
+        participants.settle();
 
-//        Participants winners = participants.getWinner();
-//        if(winner.size() == 2){
-//
-//        }
     }
 
 

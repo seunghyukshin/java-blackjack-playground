@@ -15,7 +15,15 @@ public class GameEndStrategy {
         return cards.sumAll() == BLACKJACK_SCORE && cards.size() == 2;
     }
 
+    public boolean isNotBlackjack() {
+        return !isBlackjack();
+    }
+
     public boolean isBurst() {
         return cards.sumAll() > BLACKJACK_SCORE;
+    }
+
+    public boolean isNotBurst() {
+        return !isBurst();
     }
 }
