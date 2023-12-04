@@ -62,5 +62,9 @@ public enum CardNumber {
             return 1;
         }
     }
+    
+    public boolean isAce() {
+        return this == ACE;
+    }
 
 }

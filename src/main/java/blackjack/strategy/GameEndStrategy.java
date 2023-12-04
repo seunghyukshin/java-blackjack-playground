@@ -5,7 +5,7 @@ import blackjack.domain.card.Cards;
 public class GameEndStrategy {
 
     private Cards cards;
-    private final int BLACKJACK_SCORE = 21;
+    private static final int BLACKJACK_SCORE = 21;
 
     public GameEndStrategy(Cards cards) {
         this.cards = cards;
@@ -21,6 +21,14 @@ public class GameEndStrategy {
 
     public boolean isBurst() {
         return cards.sumAll() > BLACKJACK_SCORE;
+    }
+
+
+    public static boolean isBurst(int sumAll) {
+        return sumAll > BLACKJACK_SCORE;
+    }
+    public static boolean isNotBurst(int sumAll) {
+        return !isBurst(sumAll);
     }
 
     public boolean isNotBurst() {

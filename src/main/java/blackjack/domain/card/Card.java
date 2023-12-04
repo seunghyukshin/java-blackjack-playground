@@ -22,8 +22,16 @@ public class Card {
         return cardNumber.getName() + cardPattern.getName();
     }
 
+    public int getNumber(boolean want11) {
+        // TODO :
+        return cardNumber.getValue(want11);
+    }
+
     public int getNumber() {
         // TODO :
         return cardNumber.getValue(false);
+    }
+    public boolean isAce() {
+        return cardNumber.isAce();
     }
 }

@@ -1,11 +1,12 @@
 package blackjack.domain.card;
 
 
+import blackjack.strategy.GameEndStrategy;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Cards {
 
@@ -34,7 +35,7 @@ public class Cards {
         return cards.get(0);
     }
 
-    public int size(){
+    public int size() {
         return cards.size();
     }
 
@@ -48,6 +49,29 @@ public class Cards {
     }
 
     public int sumAll() {
-        return cards.stream().map(card -> card.getNumber()).reduce((a, b) -> a + b).get();
+        int sum = _sum(false);
+
+        if (_containsAce()) {
+            return _sumMaxForAce(sum);
+        }
+
+        return sum;
+    }
+
+    // 11 대입 후 Burst면 Ace:1 로 취급
+    private int _sumMaxForAce(int sumAllAs1) {
+        int sumAllAs11 = _sum(true);
+        if (GameEndStrategy.isNotBurst(sumAllAs11)) {
+            return sumAllAs11;
+        }
+        return sumAllAs1;
+    }
+
+    private int _sum(boolean want11) {
+        return cards.stream().map(card -> card.getNumber(want11)).reduce((a, b) -> a + b).get();
+    }
+
+    private boolean _containsAce() {
+        return cards.stream().anyMatch(Card::isAce);
     }
 }
