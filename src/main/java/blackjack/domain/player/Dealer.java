@@ -3,6 +3,8 @@ package blackjack.domain.player;
 import blackjack.strategy.draw.DealerDrawStrategy;
 import blackjack.view.ResultView;
 
+import javax.xml.transform.Result;
+
 
 public class Dealer extends Participant {
     public Dealer(String name) {
@@ -20,16 +22,17 @@ public class Dealer extends Participant {
 
     @Override
     public void playTurn() {
+        ResultView.printEnter();
+
         DealerDrawStrategy drawStrategy = new DealerDrawStrategy(hands);
 
-        if(drawStrategy.isDrawable()){
+        while (drawStrategy.isDrawable()) {
             ResultView.printDrawResultOfDealer();
             drawCard(1);
 
-            return;
+            showAllCard();
+            ResultView.printEnter();
         }
-
-        ResultView.printNoDrawOfDealer();
     }
 
     private void _showOneCard() {

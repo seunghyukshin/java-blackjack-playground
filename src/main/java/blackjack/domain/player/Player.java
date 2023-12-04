@@ -26,7 +26,6 @@ public class Player extends Participant {
 
         while (_isHit(drawStrategy)) {
             drawCard(1);
-
             showAllCard();
         }
     }

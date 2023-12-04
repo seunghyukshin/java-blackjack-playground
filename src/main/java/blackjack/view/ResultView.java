@@ -25,4 +25,8 @@ public class ResultView {
     public static void printNoDrawOfDealer() {
         System.out.println("딜러는 17이상이라 카드를 더 이상 받지 않습니다.");
     }
+
+    public static void printEnter(){
+        System.out.println();
+    }
 }
